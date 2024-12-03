@@ -30,7 +30,7 @@ const buttonStyle = cva(
         sm: 'px-2.5 py-1',
       },
     },
-  },
+  }
 );
 
 type Props = Omit<VariantProps<typeof buttonStyle>, 'error'> & {
@@ -109,11 +109,11 @@ export function DateRangePicker({
       className="w-full"
       customInput={<Output />}
       dateFormat="dd MMM yyyy"
-      endDate={endDate}
+      endDate={endDate || undefined}
       onChange={handleOnChange}
-      selected={startDate}
+      selected={startDate || undefined}
       selectsRange
-      startDate={startDate}
+      startDate={startDate || undefined}
     />
   );
 }
