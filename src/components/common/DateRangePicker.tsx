@@ -1,4 +1,7 @@
+/* eslint-disable react/no-unstable-nested-components */
+
 'use client';
+
 import React, { ButtonHTMLAttributes, forwardRef, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { CalendarIcon } from '@heroicons/react/24/outline';
@@ -60,6 +63,7 @@ export function DateRangePicker({
   const [startDate, setStartDate] = useState<null | Date>(defaultStartDate);
   const [endDate, setEndDate] = useState<null | Date>(defaultEndDate);
   const style = buttonStyle({ block, className, error: !!error, intent, size });
+  // eslint-disable-next-line func-names
   const Output = forwardRef(function ({ value, onClick }: any, ref: any) {
     return (
       <div>
@@ -94,15 +98,15 @@ export function DateRangePicker({
   Output.displayName = 'Output';
 
   const handleOnChange = (date: [Date | null, Date | null]) => {
-    const startDate = date[0];
-    const endDate = date[1];
+    const newStartDate = date[0];
+    const newEndDate = date[1];
 
-    setEndDate(endDate);
-    setStartDate(startDate);
+    setStartDate(newStartDate);
+    setEndDate(newEndDate);
 
-    if (!startDate || !endDate) return;
+    if (!newStartDate || !newEndDate) return;
 
-    onChange(startDate, endDate);
+    onChange(newStartDate, newEndDate);
   };
   return (
     <DatePicker

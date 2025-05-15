@@ -1,4 +1,7 @@
+/* eslint-disable react/button-has-type */
+
 'use client';
+
 import React, { ButtonHTMLAttributes, ReactNode } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 
@@ -17,7 +20,7 @@ const pillStyle = cva(
         success: 'text-brand-green-700 bg-brand-green-50',
       },
     },
-  },
+  }
 );
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &

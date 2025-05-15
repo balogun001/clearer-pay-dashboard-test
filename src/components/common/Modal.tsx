@@ -1,4 +1,7 @@
+/* eslint-disable react/function-component-definition */
+
 'use client';
+
 import { Fragment, ReactNode } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import classNames from 'classnames';
@@ -45,7 +48,7 @@ export const Modal = ({
           <div
             className={classNames(
               `flex h-full justify-center overflow-hidden md:p-4`,
-              { 'lg:items-center': isCentered },
+              { 'lg:items-center': isCentered }
             )}
           >
             <Transition.Child
@@ -60,7 +63,7 @@ export const Modal = ({
               <Dialog.Panel
                 className={classNames(
                   'relative flex max-h-full w-full max-w-lg transform flex-col rounded-lg bg-white p-4 shadow-xl transition-all',
-                  className,
+                  className
                 )}
               >
                 <div>{header}</div>

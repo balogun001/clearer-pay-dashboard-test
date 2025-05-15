@@ -1,8 +1,9 @@
+/* eslint-disable react/function-component-definition */
+
 'use client';
-import React from 'react';
+
 import { Pagination as ReactPaginate } from 'react-headless-pagination';
-//import ReactPaginate from 'react-paginate';
-import classNames from 'classnames';
+// import ReactPaginate from 'react-paginate';
 
 type PaginationProps = {
   onPageChange: (selected: number) => void;

@@ -1,4 +1,7 @@
+/* eslint-disable react/button-has-type */
+
 'use client';
+
 import React, { ButtonHTMLAttributes, ReactNode } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 import classNames from 'classnames';
@@ -29,7 +32,7 @@ const buttonStyle = cva(
         sm: 'px-3.5 py-2.5',
       },
     },
-  },
+  }
 );
 
 type Props = VariantProps<typeof buttonStyle> & {
@@ -64,16 +67,15 @@ export function Button({
   ref,
   ...props
 }: ButtonProps | ButtonLinkProps) {
-  let inner = <>{children}</>;
-
   const style = classNames(
     buttonStyle({ block, kinds, rounded, size }),
-    className,
+    className
   );
+
   if (href) {
     return (
       <Link passHref {...(props as LinkProps)} className={style} href={href}>
-        {inner}
+        {children}
       </Link>
     );
   }
@@ -84,10 +86,11 @@ export function Button({
       ref={ref}
       {...(props as ButtonHTMLAttributes<HTMLButtonElement>)}
     >
-      {isLoading && (
-        <div className="h-4 w-4 animate-spin rounded-full border-2 border-t-white" />
+      {isLoading ? (
+        <div className="h-4 w-4 animate-spin my-1 rounded-full border-2 border-t-white" />
+      ) : (
+        children
       )}
-      {inner}
     </button>
   );
 }

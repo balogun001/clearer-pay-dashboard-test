@@ -1,3 +1,4 @@
+/* eslint-disable react/function-component-definition */
 import React, { DetailedHTMLProps } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 

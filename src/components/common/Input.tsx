@@ -31,7 +31,7 @@ const inputStyles = cva(
         sm: 'h-10',
       },
     },
-  },
+  }
 );
 
 export type InputProps = Omit<VariantProps<typeof inputStyles>, 'error'> & {
@@ -61,7 +61,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       isLoading,
       ...rest
     },
-    ref,
+    ref
   ) => {
     return (
       <label className={classNames('group block', className)}>
@@ -82,7 +82,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
               {
                 'pl-8': leftIcon,
                 'pr-8': rightIcon,
-              },
+              }
             )}
             ref={ref}
             {...rest}
@@ -114,7 +114,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         )}
       </label>
     );
-  },
+  }
 );
 
 Input.displayName = 'Input';

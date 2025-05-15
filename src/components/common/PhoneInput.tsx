@@ -1,3 +1,4 @@
+/* eslint-disable react/function-component-definition */
 import React from 'react';
 import {
   PhoneInput as ReactPhoneInput,
@@ -26,7 +27,7 @@ const inputStyles = cva(
         sm: 'h-9',
       },
     },
-  },
+  }
 );
 
 export type PhoneInputProps = VariantProps<typeof inputStyles> &
@@ -61,7 +62,7 @@ export const PhoneInput = ({
         countrySelectorStyleProps={{
           buttonClassName: classNames(
             '!h-full group-focus-within:!border-brand-textInput !px-1 !bg-gray-200 !border',
-            { '!border-red-500': !!error },
+            { '!border-red-500': !!error }
           ),
           dropdownArrowClassName: '!hidden',
         }}

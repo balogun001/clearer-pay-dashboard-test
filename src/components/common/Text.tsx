@@ -6,15 +6,14 @@ type TitleProps = DetailedHTMLProps<
   HTMLHeadingElement
 >;
 
-export function Title({ className, ...rest }: TitleProps) {
+export function Title({ className, children, ...rest }: TitleProps) {
   return (
     <h2
-      className={classNames(
-        className,
-        'text-lg font-bold text-gray-800 sm:text-2xl',
-      )}
+      className={classNames(className, 'text-h3 sm:text-h2 text-gray-600 py-4')}
       {...rest}
-    />
+    >
+      {children}
+    </h2>
   );
 }
 

@@ -1,3 +1,7 @@
+/* eslint-disable react/jsx-no-useless-fragment */
+/* eslint-disable no-nested-ternary */
+/* eslint-disable jsx-a11y/control-has-associated-label */
+/* eslint-disable react/function-component-definition */
 import { Fragment, ReactNode } from 'react';
 import {
   flexRender,
@@ -77,7 +81,7 @@ export const Table = <T extends RowData>({
                     ? null
                     : flexRender(
                         header?.column?.columnDef?.header,
-                        header?.getContext(),
+                        header?.getContext()
                       )}
                 </th>
               ))}
@@ -88,16 +92,14 @@ export const Table = <T extends RowData>({
           {isLoading ? (
             <TableLoading colSpan={colSpan} />
           ) : isEmpty ? (
-            <>
-              <tr>
-                <td
-                  className="mx-auto w-full py-12 text-center"
-                  colSpan={colSpan}
-                >
-                  {emptyState}
-                </td>
-              </tr>
-            </>
+            <tr>
+              <td
+                className="mx-auto w-full py-12 text-center"
+                colSpan={colSpan}
+              >
+                {emptyState}
+              </td>
+            </tr>
           ) : (
             <>
               {table?.getRowModel()?.rows?.map((row) => (
@@ -110,7 +112,7 @@ export const Table = <T extends RowData>({
                       >
                         {flexRender(
                           cell?.column?.columnDef?.cell,
-                          cell?.getContext(),
+                          cell?.getContext()
                         )}
                       </td>
                     ))}

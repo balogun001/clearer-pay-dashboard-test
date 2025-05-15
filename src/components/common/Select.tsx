@@ -1,4 +1,8 @@
+/* eslint-disable react/no-unstable-nested-components */
+/* eslint-disable react/function-component-definition */
+
 'use client';
+
 import { ReactNode } from 'react';
 import ReactSelect, {
   components,
@@ -56,7 +60,8 @@ export type SelectProps<Option, IsMulti extends boolean> = Omit<
 const getSelectComponent = (isAsync?: boolean, isCreatable?: boolean) => {
   if (isAsync) {
     return ReactSelectAsync;
-  } else if (isCreatable) {
+  }
+  if (isCreatable) {
     return ReactSelectCreatable;
   }
   return ReactSelect;
@@ -92,7 +97,7 @@ export const Select = <Option, IsMulti extends boolean>({
         <SelectComponent
           {...props}
           classNames={{
-            control: ({ isFocused, isDisabled }) =>
+            control: ({ isFocused }) =>
               controlStyles({ error: !!error, intent, isDisabled, isFocused }),
             indicatorSeparator: () => 'hidden',
             placeholder: () => '!text-gray-200',

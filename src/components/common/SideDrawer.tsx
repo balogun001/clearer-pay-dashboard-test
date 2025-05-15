@@ -1,4 +1,7 @@
+/* eslint-disable react/function-component-definition */
+
 'use client';
+
 import React, { Fragment, ReactNode } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import classNames from 'classnames';

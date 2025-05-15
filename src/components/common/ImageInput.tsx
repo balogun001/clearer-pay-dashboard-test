@@ -1,3 +1,4 @@
+/* eslint-disable react/function-component-definition */
 import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import {
@@ -42,7 +43,7 @@ export const ImageInput = ({
       const newImages = isMultiple ? [...value, files[0]] : [files[0]];
       onChange(newImages);
     },
-    [isMultiple, onChange, value],
+    [isMultiple, onChange, value]
   );
 
   const isDisabled = disabled || maxFiles === value?.length;
@@ -72,7 +73,7 @@ export const ImageInput = ({
         <div
           className={classNames(
             'border-brand-gray4 block rounded-xl border bg-gray-100 p-2',
-            { 'border-rose-500': !!error },
+            { 'border-rose-500': !!error }
           )}
           {...getRootProps()}
         >
@@ -110,6 +111,7 @@ export const ImageInput = ({
               {value.map((image, index) => (
                 <div
                   className="gap-z-3 bg-brand-green-700 relative mt-2 flex justify-between overflow-hidden rounded-md p-2"
+                  // eslint-disable-next-line react/no-array-index-key
                   key={index}
                 >
                   <BodyText className="flex gap-x-1 text-sm text-white">
