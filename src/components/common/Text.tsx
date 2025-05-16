@@ -9,7 +9,7 @@ type TitleProps = DetailedHTMLProps<
 export function Title({ className, children, ...rest }: TitleProps) {
   return (
     <h2
-      className={classNames(className, 'text-h3 sm:text-h2 text-gray-600 py-4')}
+      className={classNames(className, 'text-xl sm:text-4xl font-bold py-4')}
       {...rest}
     >
       {children}
@@ -19,9 +19,6 @@ export function Title({ className, children, ...rest }: TitleProps) {
 
 export function BodyText({ className, ...rest }: TitleProps) {
   return (
-    <p
-      className={classNames(className, 'text-base font-normal text-gray-700')}
-      {...rest}
-    />
+    <p className={classNames(className, 'text-lg font-normal')} {...rest} />
   );
 }
