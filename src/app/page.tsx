@@ -148,7 +148,7 @@ export default function Home() {
                 {exchangeRates.map((rate) => (
                   <Card
                     key={rate.id}
-                    className="w-full sm:!w-52 !bg-gray-50 my-1"
+                    className="w-full md:!w-52 !bg-gray-50 my-1"
                   >
                     <div className="flex items-center justify-center gap-6 sm:gap-2">
                       <div className="flex -space-x-2">
