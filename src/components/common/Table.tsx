@@ -24,13 +24,19 @@ export const TableLoading = ({ colSpan }: { colSpan: number }) => (
   <>
     {[1, 2, 3, 4, 5].map((val) => (
       <Fragment key={val}>
-        <tr className="bg-white">
+        <tr
+          className="bg-white border-b border-gray-300"
+          style={{ borderBottom: '1px solid #d1d5db' }}
+        >
           <td
             className="text-brand-textBlack w-max max-w-full px-4 py-6 text-left text-sm"
             colSpan={colSpan}
           />
         </tr>
-        <tr className="bg-gray-50">
+        <tr
+          className="bg-gray-50 border-b border-gray-300"
+          style={{ borderBottom: '1px solid #d1d5db' }}
+        >
           <td
             className="text-brand-textBlack w-max max-w-full px-4 py-6 text-left text-sm"
             colSpan={colSpan}
@@ -67,32 +73,18 @@ export const Table = <T extends RowData>({
 
   return (
     <div className="relative block w-full overflow-x-auto overflow-y-visible pb-20 align-middle">
-      <table className="min-w-full border-separate border-spacing-0">
-        <thead>
-          {table?.getHeaderGroups()?.map((headerGroup) => (
-            <tr key={headerGroup?.id}>
-              {headerGroup?.headers?.map((header) => (
-                <th
-                  className="th border-b bg-gray-50 bg-opacity-75 p-4 text-left text-sm font-medium"
-                  key={header?.id}
-                  scope="col"
-                >
-                  {header?.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header?.column?.columnDef?.header,
-                        header?.getContext()
-                      )}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody className="divide-y divide-gray-200 bg-white">
+      <table
+        className="min-w-full border-collapse"
+        style={{ borderCollapse: 'collapse' }}
+      >
+        <tbody className="bg-white">
           {isLoading ? (
             <TableLoading colSpan={colSpan} />
           ) : isEmpty ? (
-            <tr>
+            <tr
+              className="border-b border-gray-300"
+              style={{ borderBottom: '1px solid #d1d5db' }}
+            >
               <td
                 className="mx-auto w-full py-12 text-center"
                 colSpan={colSpan}
@@ -103,11 +95,14 @@ export const Table = <T extends RowData>({
           ) : (
             <>
               {table?.getRowModel()?.rows?.map((row) => (
-                <>
-                  <tr className="sm:even:bg-gray-50" key={row?.id}>
+                <Fragment key={row?.id}>
+                  <tr
+                    className="border-b border-gray-300"
+                    style={{ borderBottom: '1px solid #E8E8E8' }}
+                  >
                     {row?.getVisibleCells()?.map((cell) => (
                       <td
-                        className="text-brand-textBlack w-max max-w-full   overflow-visible p-4 text-left text-sm"
+                        className="w-max max-w-full overflow-visible p-4 text-left text-sm"
                         key={cell?.id}
                       >
                         {flexRender(
@@ -119,13 +114,16 @@ export const Table = <T extends RowData>({
                   </tr>
 
                   {row.getIsExpanded() && renderSubComponent && (
-                    <tr>
+                    <tr
+                      className="border-b border-gray-300"
+                      style={{ borderBottom: '1px solid #E8E8E8' }}
+                    >
                       <td colSpan={row.getVisibleCells().length}>
                         {renderSubComponent({ row })}
                       </td>
                     </tr>
                   )}
-                </>
+                </Fragment>
               ))}
             </>
           )}
